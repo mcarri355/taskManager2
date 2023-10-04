@@ -1,19 +1,14 @@
-// let {people} = require('../data');
 const People = require('../models/person');
 
-// get function for all people
 const readPeople = async (req, res) => {
-  // res.json({success:true, data:people});
   try {
     let people = await People.find({});
-    // console.log(answer);
     res.json(people);
   } catch (error) {
     console.log(error);
   }
 };
 
-// post function for creating people
 const createPeople = async (req, res) => {
   try {
     let allPeople = await People.find({});
@@ -36,7 +31,6 @@ const createPeople = async (req, res) => {
   }
 };
 
-// put function for update people
 const updatePeople = async (req, res) => {
   try {
     let { userID } = req.params;
@@ -63,7 +57,6 @@ const updatePeople = async (req, res) => {
   }
 };
 
-// delete function for delete people
 const deletePeople = async (req, res) => {
   try {
     const { userID } = req.params;

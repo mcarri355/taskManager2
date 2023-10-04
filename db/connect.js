@@ -1,4 +1,3 @@
-// npm install mongoose
 const mongoose = require('mongoose');
 
 const connectDB = (url) => {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Traditional</title>
+</head>
+<body onload="checkInfo()">
+    <nav>
+        <div class="nav-center">
+            <h5>HTTP Methods</h5>
+            <div>
+                <a href="task.html">Task</a>
+                <a href="people.html">People</a>
+                <a href="completion.html">Completion</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <form>
+                <div class="form-row">
+                    <label for="name"> enter Task</label>
+                    <input type="text" name="name" id="name" class="form-input" autocomplete="false">
+                    <small class="form-alert"></small>
+                </div>
+                <div class="form-row">
+                    <label for="description"> enter description</label>
+                    <input type="text" name="description" id="description" class="form-input" autocomplete="false">
+                    <small class="form-alert"></small>
+                </div>
+                <button type="submit" class="block submit-btn form-row">submit</button>       
+                <div style="text-align: center;">
+                    <form class="data">
+                        <h4 class="assignment"></h4>
+                        <h2 style="display: inline;">Task: </h2>
+                        <h2 class="task" style="display: inline;"></h2>
+                        <br>
+                        <h3 style="display: inline;">Desc:</h3>
+                        <h3 class="description" style="display: inline;"></h3>
+                        
+                        <div class="form-row row">
+                            <button><a href="./editTask.html" class="editLink">Edit</a></button>
+                            <button onclick="deleteThis()">Delete</button>
+                        </div>
+                        <div class="flex-col" style="text-align: center;">
+                            <h3 style="text-align: center;">Task List</h3>
+                            <select name="tasks" class="results" onchange="change()"></select>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                
+                
+            </form>
+
+            
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="taskList.js"></script>
+</body>
+</html>

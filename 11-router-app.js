@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // routes/router
-app.use('/api/task/', task);
-app.use('/api/people/', people);
+app.use('/api/task', task);
+app.use('/api/people', people);
 // app.use('/api/people', people);
 app.use('/login', auth);
 

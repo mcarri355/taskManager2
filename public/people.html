@@ -14,10 +14,9 @@
         <div class="nav-center">
             <h5>HTTP Methods</h5>
             <div>
-                <a href="index.html">Regular</a>
-                <a href="javascript.html">Task</a>
+                <a href="task.html">Task</a>
                 <a href="people.html">People</a>
-                <a href="all.html">All</a>
+                <a href="completion.html">Completion</a>
             </div>
         </div>
     </nav>
@@ -36,32 +35,31 @@
                     <small class="form-alert"></small>
                 </div>
                 <button type="submit" class="block submit-btn form-row">submit</button>
-                <!-- <hr> -->
-
-                <hr>
-                <div class="flex-row">
-                    <label for="person">Choose a person:</label>
-                    <select name="person" class="results" onchange="change()"></select>
+                <div style="text-align: center;">
+                    <form class="data" style="text-align: center;">
+                        <h2 class="name"></h2>
+                        <h3 class="age"></h3>
+                        <h4 class="task"></h4>
+                        <div class="form-row row">
+                            <button><a href="./editPerson.html" class="editLink">Edit</a></button>
+                            <button onclick="deleteThis()">Delete</button>
+                        </div>
+                        <div class="flex-col">
+                            <h3>People List</h3>
+                            <select name="person" class="results" onchange="change()"></select>
+                        </div>
+                    </form>
                 </div>
+                
             </form>
 
-            <div>
-                <form class="data">
-                    <h2 class="name"></h2>
-                    <h3 class="age"></h3>
-                    <h4 class="task"></h4>
-                    <div class="form-row row">
-                        <button onclick="deleteThis()">Delete</button>
-                        <button><a href="./editPerson.html" class="editLink">Edit</a></button>
-                    </div>
-                </form>
-            </div>
+            
         </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
         integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
         crossorigin="anonymous"></script>
-    <script src="personFile.js"></script>
+    <script src="personList.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,5 @@
-// let {task} = require('../data');
-const Task = require('../models/tasks');
+const Task = require('../models/task');
 
-// get function for all task
 const readTask = async (req, res) => {
   try {
     let task = await Task.find({});
@@ -11,7 +9,6 @@ const readTask = async (req, res) => {
   }
 };
 
-// post function for creating task
 const createTask = async (req, res) => {
   try {
     let allTask = await Task.find({});
@@ -30,7 +27,6 @@ const createTask = async (req, res) => {
   }
 };
 
-// put function for update task
 const updateTask = async (req, res) => {
   try {
     let { taskID } = req.params;
@@ -62,7 +58,6 @@ const updateTask = async (req, res) => {
   }
 };
 
-// delete function for delete task
 const deleteTask = async (req, res) => {
   try {
     const { taskID } = req.params;

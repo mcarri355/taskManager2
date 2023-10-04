@@ -165,6 +165,10 @@ h5 {
   align-items: flex-start;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .completed{
   text-decoration: line-through;
   opacity: .7;
@@ -440,4 +444,119 @@ h5 + h5 {
 }
 .editLink{
   color: white;
+}
+
+form {
+  width: 90vw;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  margin-bottom: 1.5rem;
+}
+
+button,
+.btn {
+  cursor: pointer;
+  appearance: none;
+  color: var(--white);
+  background: var(--primary-500);
+  border: none;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.75rem 1.5rem;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+  text-transform: capitalize;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  background: var(--grey-50);
+  border-color: transparent;
+  border: 1px solid var(--grey-300);
+}
+
+select {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  background: var(--grey-50);
+  border-color: transparent;
+  border: 1px solid var(--grey-300);
+}
+
+.results {
+  margin-left: 0;
+  margin-bottom: 1rem;
+}
+
+.centerForm {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.data {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-loading::before,
+.form-loading::after {
+  border-radius: 50%;
+}
+
+small,
+.text_small {
+  font-size: 1.2rem;
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-center {
+  width: 90vw;
+  max-width: 600px;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.result {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
