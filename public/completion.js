@@ -11,13 +11,13 @@ const fetchTask = async () => {
                 <form class=" completedForm">
                     <div class="taskAll" style="text-align:center">
                         <label for="${tasks.taskID}" class="info">
-                            <h2>Task: ${tasks.name}</h2>
-                            <h3>Assigned: ${tasks.assigned}</h3>
+                            <h2>To Do: ${tasks.name}</h2>
+                            <h3>Appointed: ${tasks.assigned}</h3>
                             <h4>Desc: ${tasks.description}</h4>
                         </label>
                     </div>
                     <div class="finish">
-                        <h4 class="marginGone">Completed:</h4>
+
                         <input type="checkbox" id="item${tasks.taskID}" name="${tasks.taskID}" value="${tasks.name}" onclick="checkedTask(${tasks.taskID})" checked>
                     </div>
                 </form>`;
@@ -26,13 +26,13 @@ const fetchTask = async () => {
                 <form>
                     <div class="taskAll" style="text-align:center">
                         <label for="${tasks.taskID}" class="info">
-                            <h2>Task: ${tasks.name}</h2>
-                            <h3>Assigned: ${tasks.assigned}</h3>
+                            <h2>To Do: ${tasks.name}</h2>
+                            <h3>Appointed: ${tasks.assigned}</h3>
                             <h4>Desc: ${tasks.description}</h4>
                         </label>
                     </div>
                     <div class="finish">
-                        <h4 class="marginGone">Completed:</h4>
+                        <h4></h4>
                         <input type="checkbox" id="item${tasks.taskID}" name="${tasks.taskID}" value="${tasks.name}" onclick="checkedTask(${tasks.taskID})">
                     </div>
                 </form>`;
