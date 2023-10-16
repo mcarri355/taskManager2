@@ -1,36 +1,11 @@
 const results = document.querySelector('.results');
-
-const fetchTask = async () => {
-  try {
-    const { data } = await axios.get('/api/task');
-    console.log(data);
-
-    const task = data.map((tasks) => {
-      return `<option value="${tasks.name}">${tasks.name}</option>`;
-    });
-
-    results.innerHTML = task.join('');
-
-    change();
-    newTask.value = '';
-    newDesc.value = '';
-    newAssign.value = '';
-  } catch (e) {
-    // formAlert.textContent = e.response.data.msg;
-  }
-};
-fetchTask();
-
 const btn = document.querySelector('.submit-btn');
 const input = document.querySelector('.form-input');
 const input2 = document.querySelector('#description');
-
 const newTask = document.querySelector('#newName');
 const newDesc = document.querySelector('#newDescription');
 let newAssign = document.querySelector('#newAssign');
-
 const formAlert = document.querySelector('.form-alert');
-
 const task = document.querySelector('.task');
 const description = document.querySelector('.description');
 const assignment = document.querySelector('.assignment');
@@ -38,6 +13,9 @@ let chosenTask = '';
 let chosenDescription = '';
 let chosenID;
 let newPerson = '';
+
+var editMode = false;
+var currentId = '';
 
 async function change() {
   let { data } = await axios.get('/api/task');
@@ -134,9 +112,6 @@ btn.addEventListener('click', async (event) => {
   }
 });
 
-var editMode = false;
-var currentId = '';
-
 function nameAlter() {
   editMode = true;
   newTask.value = chosenTask;
@@ -198,3 +173,25 @@ async function checkInfo() {
     });
   }
 }
+
+const fetchTask = async () => {
+  try {
+    const { data } = await axios.get('/api/task');
+    console.log(data);
+
+    const task = data.map((tasks) => {
+      return `<option value="${tasks.name}">${tasks.name}</option>`;
+    });
+
+    results.innerHTML = task.join('');
+
+    change();
+    newTask.value = '';
+    newDesc.value = '';
+    newAssign.value = '';
+  } catch (e) {
+    // formAlert.textContent = e.response.data.msg;
+  }
+};
+
+fetchTask();

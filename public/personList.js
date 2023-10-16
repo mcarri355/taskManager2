@@ -1,6 +1,85 @@
 const results = document.querySelector('.results');
+const btn = document.querySelector('.submit-btn');
+const input = document.querySelector('.form-input');
+const input2 = document.querySelector('#age');
+const newName = document.querySelector('#newName');
+const newAge = document.querySelector('#newAge');
+const newAssign = document.querySelector('#newAssign');
+const formAlert = document.querySelector('.form-alert');
+const names = document.querySelector('.name');
+const age = document.querySelector('.age');
+const assignment = document.querySelector('.task');
+let chosenName = '';
+let chosenAge = '';
+let chosenID;
+let newTask = '';
+var editMode = false;
+var currentId = '';
 
-const fetchPeople = async () => {
+let deleteThis = async (event) => {
+  fetch(`/api/people/${chosenID}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  fetchPeople();
+};
+
+async function infoPerson() {
+  let { data } = await axios.get('/api/people');
+  names.innerHTML = data[0].name;
+  age.innerHTML = data[0].age;
+  assignment.innerHTML = `Task: ${data[0].task}`;
+}
+
+async function checkInfo() {
+  let person;
+  let allPeople;
+
+  if (true) {
+    const { data } = await axios.get('/api/people');
+
+    person = data.map((person) => {
+      if (person.task == 'none') {
+        return person.name;
+      }
+    });
+
+    allPeople = data.map((person) => {
+      return person.name;
+    });
+  }
+
+  if (true) {
+    let { data } = await axios.get('/api/task');
+    data.map((task) => {
+      for (let i = 0; i < person.length; i++) {
+        if (task.assigned == person[i]) {
+          fetch(`/api/task/${task.taskID}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ assigned: 'unassigned' }),
+          });
+        }
+      }
+
+      let find = false;
+      for (let i = 0; i < allPeople.length; i++) {
+        if (allPeople[i] == task.assigned) {
+          find = true;
+        }
+      }
+      if (find == false) {
+        fetch(`/api/task/${task.taskID}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ assigned: 'unassigned' }),
+        });
+      }
+    });
+  }
+}
+
+async function fetchPeople() {
   try {
     const { data } = await axios.get('/api/people');
     console.log(data);
@@ -18,27 +97,8 @@ const fetchPeople = async () => {
   } catch (e) {
     // formAlert.textContent = e.response.data.msg;
   }
-};
+}
 fetchPeople();
-
-const btn = document.querySelector('.submit-btn');
-const input = document.querySelector('.form-input');
-const input2 = document.querySelector('#age');
-
-const newName = document.querySelector('#newName');
-const newAge = document.querySelector('#newAge');
-const newAssign = document.querySelector('#newAssign');
-
-const formAlert = document.querySelector('.form-alert');
-
-const names = document.querySelector('.name');
-const age = document.querySelector('.age');
-const assignment = document.querySelector('.task');
-
-let chosenName = '';
-let chosenAge = '';
-let chosenID;
-let newTask = '';
 
 async function change() {
   let { data } = await axios.get('/api/people');
@@ -136,75 +196,3 @@ btn.addEventListener('click', async (event) => {
     console.log(e);
   }
 });
-
-var editMode = false;
-var currentId = '';
-
-function nameAlter() {
-  editMode = true;
-  newName.value = chosenName;
-  newAge.value = chosenAge;
-}
-
-let deleteThis = async (event) => {
-  fetch(`/api/people/${chosenID}`, {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  fetchPeople();
-};
-
-async function infoPerson() {
-  let { data } = await axios.get('/api/people');
-  names.innerHTML = data[0].name;
-  age.innerHTML = data[0].age;
-  assignment.innerHTML = `Task: ${data[0].task}`;
-}
-
-async function checkInfo() {
-  let person;
-  let allPeople;
-
-  if (true) {
-    const { data } = await axios.get('/api/people');
-
-    person = data.map((person) => {
-      if (person.task == 'none') {
-        return person.name;
-      }
-    });
-
-    allPeople = data.map((person) => {
-      return person.name;
-    });
-  }
-
-  if (true) {
-    let { data } = await axios.get('/api/task');
-    data.map((task) => {
-      for (let i = 0; i < person.length; i++) {
-        if (task.assigned == person[i]) {
-          fetch(`/api/task/${task.taskID}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ assigned: 'unassigned' }),
-          });
-        }
-      }
-
-      let find = false;
-      for (let i = 0; i < allPeople.length; i++) {
-        if (allPeople[i] == task.assigned) {
-          find = true;
-        }
-      }
-      if (find == false) {
-        fetch(`/api/task/${task.taskID}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ assigned: 'unassigned' }),
-        });
-      }
-    });
-  }
-}
